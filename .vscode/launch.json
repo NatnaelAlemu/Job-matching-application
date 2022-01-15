@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-JobMatchWebApplication<job-Match-Web>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.jobMatchWeb.JobMatchWebApplication",
+            "projectName": "job-Match-Web",
+            "args": ""
+        }
+    ]
+}

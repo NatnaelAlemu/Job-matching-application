@@ -1,10 +1,10 @@
-package com.jobMatchWeb;
+package com.delala.delala;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class JobMatchWebApplicationTests {
+class DelalaApplicationTests {
 
 	@Test
 	void contextLoads() {
