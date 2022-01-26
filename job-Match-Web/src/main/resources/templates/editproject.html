@@ -13,7 +13,7 @@
         integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <title>Profile</title>
+    <title>Edit Project</title>
 </head>
 
 <body style="min-height: 100vh;" class="d-flex flex-column">
@@ -21,46 +21,41 @@
 
     <div class="container w-50 my-auto ">
         <div class="rounded shadow p-3">
-            <h1>Profile</h1>
-            <form th:action="@{/update-profile}" method="post" th:object="${user}">
-                <!-- <input type="hidden" name="id" th:value="*{id}"> -->
+            <h1>Edit Project</h1>
+            <form th:action="@{/saveproject}" method="post" th:object="${project}">
+                <input type="hidden" name="id" th:value="*{id}">
                 <div class="mb-3">
-                    <label for="username" class="form-label">Username</label>
-                    <input type="text" class="form-control" disabled id="username"
-                        th:field="*{username}">
-                </div>
-                <div class="mb-3">
-                    <label for="firstname" class="form-label">First name</label>
-                    <input type="text" class="form-control" th:field="*{firstName}" id="firstname"
-                        h:errorclass="is-invalid"></input>
-                    <div class="invalid-feedback">
-                        <span th:errors="*{firstName}"></span>
-                    </div>
-                </div>
-                <div class="mb-3">
-                    <label for="lastname" class="form-label">Last name</label>
-                    <input type="text" class="form-control" th:field="*{lastName}" id="lastname"
+                    <label for="projectTitle" class="form-label">Title</label>
+                    <input type="text" class="form-control" id="projectTitle" th:field="*{projectTitle}"
                         th:errorclass="is-invalid">
                     <div class="invalid-feedback">
-                        <span th:errors="*{lastName}"></span>
+                        <span th:errors="*{projectTitle}"></span>
                     </div>
                 </div>
                 <div class="mb-3">
-                    <label for="email" class="form-label">Email</label>
-                    <input type="email" class="form-control" th:field="*{email}" id="email" th:errorclass="is-invalid">
+                    <label for="projectDescription" class="form-label">Description</label>
+                    <textarea class="form-control" id="projectDescription" rows="3" th:field="*{projectDescription}"
+                        th:errorclass="is-invalid"></textarea>
                     <div class="invalid-feedback">
-                        <span th:errors="*{email}"></span>
+                        <span th:errors="*{projectDescription}"></span>
                     </div>
                 </div>
                 <div class="mb-3">
-                    <label for="phonenumber" class="form-label">Phone number</label>
-                    <input type="tel" class="form-control" th:field="*{phoneNumber}" id="phonenumber"
-                        th:errorclass="is-invalid">
+                    <label for="price" class="form-label">Price</label>
+                    <input type="number" class="form-control" th:field="*{price}" id="price" th:errorclass="is-invalid">
                     <div class="invalid-feedback">
-                        <span th:errors="*{phoneNumber}"></span>
+                        <span th:errors="*{price}"></span>
                     </div>
                 </div>
-
+                <div class="mb-3">
+                    <label for="skill" class="form-label">Skills</label>
+                    <select class="form-select" th:field="*{skill}" id="skill" th:errorclass="is-invalid">
+                        <option th:each="sk : ${skills}" th:text="${sk.name}" th:value="${sk.id}">C++</option>
+                    </select>
+                    <div class="invalid-feedback">
+                        <span th:errors="*{skill}"></span>
+                    </div>
+                </div>
                 <button type="submit" class="btn btn-primary">Update</button>
             </form>
         </div>
